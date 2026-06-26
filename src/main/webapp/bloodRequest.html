@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blood Request</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body{
+        background-image:url("request.jpg");
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+        background-size:100%,100%;
+    }
+    .container {
+    max-width: 1800px;
+    margin: 0 auto;
+    background-color: #f7f4b3;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+   
+</style>
+<body>
+    <div class="container">
+        <h1>Blood Request</h1>
+        <form name="login" action="request.jsp" method="POST" onsubmit="return validateForm()">
+            
+
+        Enter Blood Type you want:<br>
+        <input type="radio" name="blood" value="A+" />A+
+        <input type="radio" name="blood" value="B+" />B+
+        <input type="radio" name="blood" value="AB+" />AB+
+        <input type="radio" name="blood" value="O+" />O+<br>
+        <input type="radio" name="blood" value="A-" />A-
+        <input type="radio" name="blood" value="B-" />B-
+        <input type="radio" name="blood" value="AB-" />AB-
+        <input type="radio" name="blood" value="O-" />O-<br>
+            
+            <input type="submit" value="Submit Request">
+        </form>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

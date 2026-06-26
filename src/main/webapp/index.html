@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank Management System</title>
+    <link rel="stylesheet" href="hstyles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Blood Bank Management System</h1>
+            <hr color="green">
+            
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="donar.html">Donors</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="cont.html">Contact</a></li>
+                    <li><a href="logout.jsp">Logout</a></li>
+                </ul>
+            </nav>
+            <div id="welcome-message"></div> <!-- Placeholder for welcome message -->
+        </div>
+    </header>
+    
+    <section id="home" class="section">
+        <div class="container">
+            <h2>Welcome to Blood Bank Management System</h2>
+            
+        </div>
+    </section>
+    <section id="home" class="section">
+        <div class="container">
+            <h1>The Gift of Life: Blood Donation</h1>
+            <p>
+                Blood donation is an act of generosity that saves lives. Each donation can impact multiple individuals,
+                providing crucial support during medical treatments, surgeries, and emergencies.
+            </p>
+            <p>
+                Blood is vital for maintaining life, transporting oxygen and nutrients throughout the body, and
+                removing waste products. Every drop of donated blood contributes to improving and sustaining
+                the health of those in need.
+            </p>
+            <p>
+                Be a hero - donate blood and give the gift of life!
+            </p>
+        </div>
+    </section>
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>
+                We are dedicated to ensuring a safe and steady supply of blood for those in need. Our team
+                of professionals works tirelessly to manage and maintain the Blood Bank Management System,
+                connecting donors with recipients and saving lives.
+            </p>
+            <img src="blood.jpg" alt="Blood Bank" style="width: 400%; max-width: 800px; display: block; margin: 60px auto;">
+        </div>
+    </section>
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>
+                Need more information? Feel free to get in touch with us. Our team is ready to assist
+                you.
+            </p>
+            <p>Email: info@bloodbank.com</p>
+            <p>Phone: +1234567890</p>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Blood Bank Management System. All rights reserved.</p>
+            <p>&copy; Blood donors are ordinary people with extraordinary hearts.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <script>
+        // Function to extract URL parameter
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        };
+
+        // Extract username from URL parameter
+        var username = getUrlParameter('username');
+        if (username) {
+            // Display welcome message
+            document.getElementById('welcome-message').innerHTML = 'Welcome, ' + username + '!';
+        }
+    </script>
+</body>
+</html>
