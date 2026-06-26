@@ -1,4 +1,4 @@
-\<%@ page import="java.sql.*,java.util.*,java.io.*"%>
+<%@ page import="java.sql.*,java.util.*,java.io.*"%>
 
 <%
     String blood = request.getParameter("blood");
