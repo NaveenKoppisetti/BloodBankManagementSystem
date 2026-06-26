@@ -7,9 +7,6 @@
 build/
 target/
 
-# Database configuration
-src/main/webapp/WEB-INF/db.properties
-
 # macOS
 .DS_Store
 
