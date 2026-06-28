@@ -172,25 +172,6 @@
     color: var(--crimson);
   }
 
-  /* ── Back button ── */
-  body::after {
-    content: '← Back to Request';
-    display: block;
-    width: fit-content;
-    margin: 32px auto 0;
-    padding: 11px 24px;
-    background: transparent;
-    border: 2px solid var(--crimson);
-    border-radius: 8px;
-    color: var(--crimson);
-    font-family: 'Inter', sans-serif;
-    font-size: .92rem;
-    font-weight: 600;
-    cursor: pointer;
-    text-align: center;
-    /* acts as a visual cue; actual nav handled below */
-  }
-
   /* ── Empty state ── */
   table:not(:has(tr + tr)) td {
     text-align: center;
@@ -214,7 +195,7 @@
             text-decoration:none; transition:background .18s;"
      onmouseover="this.style.background='#C0152A';this.style.color='#fff'"
      onmouseout="this.style.background='transparent';this.style.color='#C0152A'">
-    ← Make Another Request
+    &larr; Make Another Request
   </a>
   &nbsp;&nbsp;
   <a href="index.html"
@@ -224,6 +205,6 @@
             text-decoration:none;"
      onmouseover="this.style.background='#8B0E1E'"
      onmouseout="this.style.background='#C0152A'">
-    Home →
+    Home &rarr;
   </a>
 </div>
