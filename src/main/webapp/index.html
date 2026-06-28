@@ -26,7 +26,7 @@
             <li><a href="donar.html">Donors</a></li>
             <li><a href="#about">About Us</a></li>
             <li><a href="cont.html">Contact</a></li>
-            <li><a href="logout.jsp" class="logout">Logout</a></li>
+            <li><a href="logout.jsp" class="logout" onclick="sessionStorage.clear()">Logout</a></li>
           </ul>
         </nav>
       </div>
@@ -148,9 +148,18 @@
       var results = regex.exec(location.search);
       return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
     }
-    var username = getUrlParameter('username');
+
+    // If login just redirected here with ?username=..., save it for the whole session
+    var urlUsername = getUrlParameter('username');
+    if (urlUsername) {
+      sessionStorage.setItem('bbms_username', urlUsername);
+    }
+
+    // Always read from sessionStorage so name shows even after navigating away and back
+    var username = sessionStorage.getItem('bbms_username');
     if (username) {
-      document.getElementById('welcome-message').innerHTML = 'Welcome back, <strong>' + username + '</strong> 👋';
+      document.getElementById('welcome-message').innerHTML =
+        'Welcome back, <strong>' + username + '</strong> &#128075;';
     }
   </script>
 
