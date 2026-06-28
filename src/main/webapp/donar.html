@@ -1,23 +1,71 @@
 <link rel="stylesheet" href="hstyles.css">
 <head>
-    <style>
-        body{
-            background-image:url("donar.jpg");
-            background-repeat:no-repeat;
-            background-attachment:fixed;
-            background-size:100%,100%;
-        }
-    </style>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(160deg, #FFF8F8 0%, #FFE4E4 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 16px;
+    }
+  </style>
 </head>
 
-<section id="donors" class="section">
+<section id="donors" class="section" style="width:100%;">
+  <div class="container" style="text-align:center; max-width:640px;">
+    <div style="font-size:4rem; margin-bottom:20px;">🩸</div>
+    <span class="section-label">Our Community</span>
+    <h2 style="font-size:2.2rem; margin:12px 0 16px;">Dedicated Donors</h2>
+    <p style="color:var(--muted); font-size:1rem; max-width:480px; margin:0 auto 36px;">
+      Every donor here is a lifeline for someone in need. Browse our network of committed donors
+      or join the cause and register your blood type today.
+    </p>
 
-    <div class="container">
-        <h2>Our Donors</h2>
-        <p>
-            Check out our dedicated donors who contribute to saving lives. Become a donor today and
-            join the cause!
-        </p>
-        <a href="bloodRequest.html" class="button">View Donors</a>
+    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:40px;">
+      <a href="bloodRequest.html" class="button">🔍 Find Donors / Request Blood</a>
+      <a href="register.html" class="button" style="background:transparent; border:2px solid var(--crimson); color:var(--crimson);">Become a Donor</a>
     </div>
+
+    <!-- Blood type availability indicators -->
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; max-width:400px; margin:0 auto;">
+      <div style="background:#fff; border:1.5px solid #F0D0D0; border-radius:10px; padding:16px 8px; text-align:center;">
+        <div style="font-size:1.2rem; font-weight:700; color:var(--crimson);">A+</div>
+        <div style="font-size:.72rem; color:var(--muted); margin-top:4px;">Available</div>
+      </div>
+      <div style="background:#fff; border:1.5px solid #F0D0D0; border-radius:10px; padding:16px 8px; text-align:center;">
+        <div style="font-size:1.2rem; font-weight:700; color:var(--crimson);">B+</div>
+        <div style="font-size:.72rem; color:var(--muted); margin-top:4px;">Available</div>
+      </div>
+      <div style="background:#fff; border:1.5px solid #F0D0D0; border-radius:10px; padding:16px 8px; text-align:center;">
+        <div style="font-size:1.2rem; font-weight:700; color:var(--crimson);">AB+</div>
+        <div style="font-size:.72rem; color:var(--muted); margin-top:4px;">Available</div>
+      </div>
+      <div style="background:#fff; border:1.5px solid #F0D0D0; border-radius:10px; padding:16px 8px; text-align:center;">
+        <div style="font-size:1.2rem; font-weight:700; color:var(--crimson);">O+</div>
+        <div style="font-size:.72rem; color:var(--muted); margin-top:4px;">Available</div>
+      </div>
+      <div style="background:#fff; border:1.5px solid #F0D0D0; border-radius:10px; padding:16px 8px; text-align:center;">
+        <div style="font-size:1.2rem; font-weight:700; color:var(--crimson);">A−</div>
+        <div style="font-size:.72rem; color:var(--muted); margin-top:4px;">Available</div>
+      </div>
+      <div style="background:#fff; border:1.5px solid #F0D0D0; border-radius:10px; padding:16px 8px; text-align:center;">
+        <div style="font-size:1.2rem; font-weight:700; color:var(--crimson);">B−</div>
+        <div style="font-size:.72rem; color:var(--muted); margin-top:4px;">Available</div>
+      </div>
+      <div style="background:#fff; border:1.5px solid #F0D0D0; border-radius:10px; padding:16px 8px; text-align:center;">
+        <div style="font-size:1.2rem; font-weight:700; color:var(--crimson);">AB−</div>
+        <div style="font-size:.72rem; color:var(--muted); margin-top:4px;">Available</div>
+      </div>
+      <div style="background:#fff; border:1.5px solid #F0D0D0; border-radius:10px; padding:16px 8px; text-align:center;">
+        <div style="font-size:1.2rem; font-weight:700; color:var(--crimson);">O−</div>
+        <div style="font-size:.72rem; color:var(--muted); margin-top:4px;">Available</div>
+      </div>
+    </div>
+
+    <p style="margin-top:24px; color:var(--muted); font-size:.85rem;">
+      <a href="index.html" style="color:var(--crimson); font-weight:600;">← Back to Home</a>
+    </p>
+  </div>
 </section>
