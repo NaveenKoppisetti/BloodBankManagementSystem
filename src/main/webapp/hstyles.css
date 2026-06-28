@@ -1,74 +1,241 @@
-/* Reset default margin and padding */
-body, h1, h2, h3, h4, p, ul, li {
-    margin: 0;
-    padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Tokens ── */
+:root {
+  --crimson:   #C0152A;
+  --crimson-dk:#8B0E1E;
+  --crimson-lt:#FFE4E4;
+  --bg:        #FFF8F8;
+  --surface:   #FFFFFF;
+  --text:      #1A0A0B;
+  --muted:     #6B7280;
+  --border:    #F0D0D0;
+  --green:     #1a7a3c;
+  --green-lt:  #e8f5ee;
+  --radius:    10px;
+  --shadow:    0 4px 20px rgba(192,21,42,.10);
 }
 
-/* Global styles */
+/* ── Base ── */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
 }
 
+h1, h2, h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  line-height: 1.2;
+}
+
+a { color: var(--crimson); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Container ── */
 .container {
-    width: 80%;
-    margin: 0 auto;
-    overflow: hidden;
+  width: 88%;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
+/* ── Header ── */
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
+  background: var(--crimson);
+  color: #fff;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  width: 36px;
+  height: 36px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.brand-icon svg { display: block; }
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,.5); }
+  50%       { box-shadow: 0 0 0 8px rgba(255,255,255,0); }
 }
 
 header h1 {
-    text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: .01em;
 }
 
-nav ul {
-    list-style: none;
-    text-align: center;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 10px;
-}
-
+/* ── Nav ── */
+nav ul { list-style: none; display: flex; gap: 4px; flex-wrap: wrap; }
 nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    padding: 5px 10px;
+  color: rgba(255,255,255,.88);
+  padding: 7px 14px;
+  border-radius: 6px;
+  font-size: .92rem;
+  font-weight: 500;
+  transition: background .18s, color .18s;
+}
+nav ul li a:hover {
+  background: rgba(255,255,255,.18);
+  color: #fff;
+  text-decoration: none;
+}
+nav ul li a.logout {
+  background: rgba(255,255,255,.15);
+  border: 1px solid rgba(255,255,255,.3);
+}
+nav ul li a.logout:hover { background: rgba(255,255,255,.28); }
+
+/* ── Welcome strip ── */
+#welcome-message {
+  background: rgba(255,255,255,.15);
+  color: #fff;
+  text-align: center;
+  padding: 6px 16px;
+  font-size: .88rem;
+  font-weight: 500;
+  border-top: 1px solid rgba(255,255,255,.2);
 }
 
-section {
-    padding: 50px 0;
+/* ── Hero section ── */
+.hero {
+  background: linear-gradient(135deg, var(--crimson) 0%, var(--crimson-dk) 100%);
+  color: #fff;
+  padding: 80px 0 70px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: '🩸';
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 9rem;
+  opacity: .08;
+  pointer-events: none;
+}
+
+.hero h2 {
+  font-size: 2.6rem;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  opacity: .88;
+  max-width: 600px;
+  margin-bottom: 28px;
+}
+
+/* ── Sections ── */
+.section { padding: 64px 0; }
+.section + .section { border-top: 1px solid var(--border); }
+
+.section-label {
+  display: inline-block;
+  background: var(--crimson-lt);
+  color: var(--crimson);
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 12px;
 }
 
 .section h2 {
-    text-align: center;
-    margin-bottom: 20px;
+  font-size: 2rem;
+  margin-bottom: 16px;
+  color: var(--text);
 }
 
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #4caf50;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
+/* ── Card ── */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border-left: 5px solid var(--crimson);
+  padding: 32px 28px;
 }
 
-.button:hover {
-    background-color: #45a049;
+/* ── Buttons ── */
+.button, .btn {
+  display: inline-block;
+  padding: 11px 26px;
+  background: var(--crimson);
+  color: #fff !important;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: .95rem;
+  border: none;
+  cursor: pointer;
+  transition: background .18s, transform .12s;
+  text-decoration: none !important;
+}
+.button:hover, .btn:hover {
+  background: var(--crimson-dk);
+  transform: translateY(-1px);
 }
 
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--crimson);
+  color: var(--crimson) !important;
+}
+.btn-outline:hover { background: var(--crimson); color: #fff !important; }
+
+/* ── Footer ── */
 footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
+  background: var(--text);
+  color: rgba(255,255,255,.65);
+  text-align: center;
+  padding: 28px 0;
+  font-size: .88rem;
+  line-height: 1.8;
+}
+footer strong { color: #fff; }
+
+/* ── Utility ── */
+.text-muted { color: var(--muted); font-size: .9rem; }
+.mt-4 { margin-top: 1rem; }
+.mb-4 { margin-bottom: 1rem; }
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .header-inner { flex-direction: column; align-items: flex-start; }
+  .hero h2 { font-size: 1.8rem; }
+  nav ul { gap: 2px; }
 }
