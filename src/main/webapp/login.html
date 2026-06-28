@@ -1,154 +1,247 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Login Form</title>
-    <style>
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    padding: 20px;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — Blood Bank</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --crimson:   #C0152A;
+      --crimson-dk:#8B0E1E;
+      --crimson-lt:#FFE4E4;
+      --bg:        #FFF8F8;
+      --surface:   #FFFFFF;
+      --text:      #1A0A0B;
+      --muted:     #6B7280;
+      --border:    #F0D0D0;
+    }
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg);
+      color: var(--text);
+    }
+    .page-wrap {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+    }
 
-h1 {
-    text-align: center;
-}
+    /* Left panel */
+    .left-panel {
+      background: linear-gradient(150deg, var(--crimson) 0%, var(--crimson-dk) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 64px 56px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .left-panel::after {
+      content: '🩸';
+      position: absolute;
+      bottom: -20px;
+      right: -10px;
+      font-size: 14rem;
+      opacity: .07;
+      pointer-events: none;
+    }
+    .left-panel .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .left-panel .brand-dot {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+    .left-panel .brand span {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    .left-panel h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .left-panel p {
+      font-size: 1rem;
+      opacity: .85;
+      max-width: 320px;
+      line-height: 1.7;
+    }
 
-form {
-    width: 300px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+    /* Right panel */
+    .right-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 48px 40px;
+      background: var(--surface);
+    }
+    .form-box {
+      width: 100%;
+      max-width: 380px;
+    }
+    .form-box h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+    .form-box .subtitle {
+      color: var(--muted);
+      font-size: .92rem;
+      margin-bottom: 36px;
+    }
+    label {
+      display: block;
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: .95rem;
+      background: var(--bg);
+      color: var(--text);
+      margin-bottom: 20px;
+      transition: border-color .18s, box-shadow .18s;
+      outline: none;
+    }
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      border-color: var(--crimson);
+      box-shadow: 0 0 0 3px rgba(192,21,42,.12);
+    }
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 4px;
+    }
+    input[type="Submit"] {
+      flex: 2;
+      padding: 12px;
+      background: var(--crimson);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: .95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .18s;
+    }
+    input[type="Submit"]:hover { background: var(--crimson-dk); }
+    input[type="Reset"] {
+      flex: 1;
+      padding: 12px;
+      background: transparent;
+      color: var(--muted);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: .95rem;
+      cursor: pointer;
+      transition: border-color .18s;
+    }
+    input[type="Reset"]:hover { border-color: var(--crimson); color: var(--crimson); }
+    .signup-link {
+      text-align: center;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+    .signup-link a { color: var(--crimson); font-weight: 600; }
 
-input[type="text"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-.button-container {
-    display: flex;
-    justify-content: space-between;
-}
+    @media (max-width: 700px) {
+      .page-wrap { grid-template-columns: 1fr; }
+      .left-panel { padding: 40px 28px; }
+      .left-panel h1 { font-size: 1.8rem; }
+      .left-panel::after { font-size: 8rem; }
+    }
+  </style>
 
-input[type="Submit"],
-input[type="Reset"] {
-    width: 48%; 
-    padding: 10px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type="Submit"]:hover,
-input[type="Reset"]:hover {
-    background-color: #45a049;
-}
-
-h4 {
-    text-align: center;
-    margin-top: 20px;
-}
-
-a {
-    color: #007bff;
-}
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            padding: 20px;
-        }
-        
-        h1 {
-            text-align: center;
-        }
-        
-        form {
-            width: 300px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        
-        input[type="text"],
-        input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        
-        .button-container {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px; 
-        }
-        
-        input[type="Submit"],
-        input[type="Reset"] {
-            width: 48%; 
-            padding: 10px;
-            background-color: #4caf50;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        
-        input[type="Submit"]:hover,
-        input[type="Reset"]:hover {
-            background-color: #45a049;
-        }
-        
-        h4 {
-            text-align: center;
-            margin-top: 20px;
-        }
-        
-        a {
-            color: #007bff;
-        }
-    </style>
-    <script>
-        function validateForm() {
-            var uname = document.forms['login']['uname'].value.trim();
-            var pwd = document.forms['login']['pwd'].value.trim();
-
-            if (uname === '' || pwd === '') {
-                alert('Please enter both username and password.');
-                return false; 
-            }
-
-            return true;
-        }
-    </script>
+  <script>
+    function validateForm() {
+      var uname = document.forms['login']['uname'].value.trim();
+      var pwd = document.forms['login']['pwd'].value.trim();
+      if (uname === '' || pwd === '') {
+        alert('Please enter both username and password.');
+        return false;
+      }
+      return true;
+    }
+  </script>
 </head>
+<body>
+  <div class="page-wrap">
 
-<body background="login.jpg">
-    <h1>Login Form</h1>
-    <form name="login" action="login.jsp" method="POST" onsubmit="return validateForm()">
-        ENTER USERNAME:<input type="text" name="uname" /><br>
-        ENTER PASSWORD:<input type="password" name="pwd" /><br>
-        
-        <!-- Container for buttons -->
-        <div class="button-container">
-            <input type="Submit" value="Submit" />
-            <input type="Reset" value="Reset" />
+    <!-- Left -->
+    <div class="left-panel">
+      <div class="brand">
+        <div class="brand-dot">🩸</div>
+        <span>Blood Bank</span>
+      </div>
+      <h1>Welcome back.</h1>
+      <p>
+        Sign in to access the donor network, submit blood requests, and help save lives in your community.
+      </p>
+    </div>
+
+    <!-- Right -->
+    <div class="right-panel">
+      <div class="form-box">
+        <h2>Sign In</h2>
+        <p class="subtitle">Enter your credentials to continue</p>
+
+        <!-- ACTION + NAME attributes preserved exactly -->
+        <form name="login" action="login.jsp" method="POST" onsubmit="return validateForm()">
+          <label for="uname">Username</label>
+          <input type="text" id="uname" name="uname" placeholder="Enter your username" />
+
+          <label for="pwd">Password</label>
+          <input type="password" id="pwd" name="pwd" placeholder="Enter your password" />
+
+          <div class="btn-row">
+            <input type="Submit" value="Sign In" />
+            <input type="Reset" value="Clear" />
+          </div>
+        </form>
+
+        <div class="signup-link">
+          Don't have an account? <a href="register.html">Create one →</a>
         </div>
-        
-        <h4>click here to <a href="register.html">sign up</a></h4>
-    </form>
+      </div>
+    </div>
+
+  </div>
 </body>
 </html>
